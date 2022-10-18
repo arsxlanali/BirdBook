@@ -1,7 +1,6 @@
 # tfjs-yolov5-example
 
 ## Usage
-<del>Export TensorFlow.js model as described in https://github.com/ultralytics/yolov5/pull/1127</del>
 
 After [the release of YOLOv5 v6](https://github.com/ultralytics/yolov5/releases/tag/v6.0), users could export tfjs models with its main branch:
 ```
