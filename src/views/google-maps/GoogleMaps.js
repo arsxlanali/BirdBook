@@ -53,38 +53,38 @@ const locations = [
   },
 ];
 
-const MarkerList = () => {
-  return locations.map((location, index) => {
-    return <MarkerWithInfoWindow key={index.toString()} location={location} />;
-  });
-};
+// const MarkerList = () => {
+//   return locations.map((location, index) => {
+//     return <MarkerWithInfoWindow key={index.toString()} location={location} />;
+//   });
+// };
 
-function MarkerWithInfoWindow({ location }) {
-  const [isOpen, setIsOpen] = useState(false);
+// function MarkerWithInfoWindow({ location }) {
+//   const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <Marker
-      onClick={() => setIsOpen(!isOpen)}
-      position={location}
-      title={location.title}
-      label={location.label}
-    >
-      {isOpen && (
-        <InfoWindow onCloseClick={() => setIsOpen(false)}>
-          <a href={location.www} target="_blank">
-            {location.title}
-          </a>
-        </InfoWindow>
-      )}
-    </Marker>
-  );
-}
+//   return (
+//     <Marker
+//       onClick={() => setIsOpen(!isOpen)}
+//       position={location}
+//       title={location.title}
+//       label={location.label}
+//     >
+//       {isOpen && (
+//         <InfoWindow onCloseClick={() => setIsOpen(false)}>
+//           <a href={location.www} target="_blank">
+//             {location.title}
+//           </a>
+//         </InfoWindow>
+//       )}
+//     </Marker>
+//   );
+// }
 
 const GoogleMapsComponent = withScriptjs(
   withGoogleMap(() => {
     return (
       <GoogleMap defaultZoom={defaultZoom} defaultCenter={defaultCenter}>
-        {<MarkerList locations={locations} />}
+        {/* {<MarkerList locations={locations} />} */}
       </GoogleMap>
     );
   })
