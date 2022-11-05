@@ -7,6 +7,7 @@ import history from "./history";
 
 import BirdRecognition from "./views/bird-recognition/BirdRecognition";
 import GoogleMaps from "./views/google-maps/GoogleMaps";
+import UplaodImg from "./reusable/UploadImg";
 
 const App = () => {
   //   const loading = (
@@ -31,6 +32,14 @@ const App = () => {
           path="/maps"
           name="Bird Map"
           render={(props) => <GoogleMaps {...props} />}
+        />
+      </Switch>
+      <Switch>
+        <Route
+          exact
+          path="/upload"
+          name="Bird Upload"
+          render={(props) => <UplaodImg {...props} />}
         />
       </Switch>
       {/* </React.Suspense> */}
