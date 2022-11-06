@@ -7,7 +7,8 @@ import history from "./history";
 
 import BirdRecognition from "./views/bird-recognition/BirdRecognition";
 import GoogleMaps from "./views/google-maps/GoogleMaps";
-import UplaodImg from "./reusable/UploadImg";
+// import UplaodImg from "./reusable/UploadImg";
+import AddQuiz from "./views/add-quiz/AddQuiz";
 
 const App = () => {
   //   const loading = (
@@ -39,7 +40,7 @@ const App = () => {
           exact
           path="/upload"
           name="Bird Upload"
-          render={(props) => <UplaodImg {...props} />}
+          render={(props) => <AddQuiz {...props} />}
         />
       </Switch>
       {/* </React.Suspense> */}

@@ -1,55 +1,65 @@
 import React from "react";
 import axios from "axios";
 import { useEffect } from "react";
-// import { useEffect } from "react";
 import { useState } from "react";
 
 const baseURL = "https://bird-book.herokuapp.com";
 
-function UplaodImg() {
+const token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjY3Njc3MzY3LCJleHAiOjE2Njc2NzkzNjd9.BObfMYeAt1Xw6WFLM-8JQ9sAWZjfLmOhJldv5GGZYAk";
+
+function UplaodImg({ data }) {
   const api_key = "252944217837197";
   const cloud_name = "dpxrvbatm";
-  // var [signature, setSignature] = useState(null);
+  // const [count, setCount] = useState(null);
+  // const [signature, setSignature] = useState(null);
+  const [signature, setSignature] = useState("");
   // var signature;
   useEffect(() => {
-    axios.get(`${baseURL}/img/getSignature`).then((response) => {
-      // setSignature(response.data);
-      console.log("THis is ", response.data);
-    });
+    // setSignature("fsdfdsf");
+    axios
+      .get(`${baseURL}/img/getSignature`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        // console.log("helel");
+        setSignature(res.data);
+        console.log("THis is ", res.data, signature);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    // console.log(signature);
   }, []);
   return (
     <>
-      <h1>Welcome</h1>
+      <input id="file-field" type="file" />
+      <button
+        onClick={async function(e) {
+          e.preventDefault();
 
-      <form id="upload-form">
-        <input id="file-field" type="file" />
-        <button
-          onSubmit={async function(e) {
-            e.preventDefault();
-            // get signature. In reality you could store this in localstorage or some other cache mechanism, it's good for 1 hour
-            // const data = new FormData();
-            // data.append("file", document.querySelector("#file-field").files[0]);
-            // data.append("api_key", api_key);
-            // data.append("signature", signatureResponse.data.signature);
-            // data.append("timestamp", signatureResponse.data.timestamp);
-
-            // const cloudinaryResponse = await axios.post(
-            //   `https://api.cloudinary.com/v1_1/${cloud_name}/auto/upload`,
-            //   data,
-            //   {
-            //     headers: { "Content-Type": "multipart/form-data" },
-            //     onUploadProgress: function(e) {
-            //       console.log(e.loaded / e.total);
-            //     },
-            //   }
-            // );
-            // console.log(cloudinaryResponse.data);
-          }}
-        >
-          Upload
-        </button>
-      </form>
-
+          data.append("file", document.querySelector("#file-field").files[0]);
+          data.append("api_key", api_key);
+          data.append("signature", signature.signature);
+          data.append("timestamp", signature.timestamp);
+          console.log("THis is ", data);
+          const cloudinaryResponse = await axios.post(
+            `https://api.cloudinary.com/v1_1/${cloud_name}/auto/upload`,
+            data,
+            {
+              headers: { "Content-Type": "multipart/form-data" },
+              onUploadProgress: function(e) {
+                console.log(e.loaded / e.total);
+              },
+            }
+          );
+          data.append("url", cloudinaryResponse.data.secure_url);
+          // console.log("this is data", data.values());
+          // console.log(cloudinaryResponse.data.secure_url);
+        }}
+      >
+        Upload
+      </button>
       <hr />
     </>
   );
