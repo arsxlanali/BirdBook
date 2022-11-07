@@ -11,18 +11,13 @@ const token =
 function UplaodImg({ data }) {
   const api_key = "252944217837197";
   const cloud_name = "dpxrvbatm";
-  // const [count, setCount] = useState(null);
-  // const [signature, setSignature] = useState(null);
   const [signature, setSignature] = useState("");
-  // var signature;
   useEffect(() => {
-    // setSignature("fsdfdsf");
     axios
       .get(`${baseURL}/img/getSignature`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        // console.log("helel");
         setSignature(res.data);
         console.log("THis is ", res.data, signature);
       })

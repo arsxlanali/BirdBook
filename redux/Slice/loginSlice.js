@@ -23,8 +23,8 @@ export const login = createAsyncThunk(
       })
       .catch((error) => {
         setSubmitting(false);
-        // console.log("this is error", error)
-        setErrors({ email: "Invalid credentials" });
+        console.log("this is error", error)
+        // setErrors({ email: "Invalid credentials" });
       });
   }
 );
