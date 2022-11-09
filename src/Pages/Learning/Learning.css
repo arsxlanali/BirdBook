@@ -1,0 +1,103 @@
+/* .heading{
+   
+width: 219px;
+height: 39px;
+margin-left: 15%;
+margin-top:3% ;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+
+
+color: #464646;
+}
+.card-container{
+width: 910px;
+height: 40vh;
+margin-top: 5%;
+margin-left: 15%;
+top: 50%;
+
+
+background: rgba(214, 209, 209, 0.54)!important;
+border-radius: 18px;
+}
+.card-title{
+    
+width: 443px;
+height: 39px;
+margin-left: 3% ;
+padding-top: 3% ;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px ;
+line-height: 39px;
+color: #464646;
+}
+.card-text{
+   
+width: 469px;
+height: 108px;
+margin-left: 3%;
+padding-top: 10%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+color: #464646;
+}
+.card-img{
+ 
+    width: 285px;
+    height: 40vh;
+    left: 972px;
+    top: 198px;
+    
+    border-radius: 0px 18px 18px 0px;
+} */
+
+.sidebar{
+    
+    width: 260px;
+    height: 100%;
+    margin-top:0%;
+    background: #F3EAFF;
+    top: 0;
+    left: 0;
+  
+}
+.div1{
+    padding-top: 30%;
+
+}
+.heading1{
+    background: #969696;
+    padding-left: 7%; 
+    font-size: 25px;
+    color: #e6d4fd;
+    height: 40px;
+
+}
+
+.li1{
+    margin-left: 15%;
+    line-height: 2rem;
+ 
+
+}
+.div2{
+    padding-top: 10%;
+   
+
+}
+.li1:hover{
+  
+}

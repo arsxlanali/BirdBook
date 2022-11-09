@@ -1,0 +1,71 @@
+.carddd{
+    width: 60vw;
+    margin: 2% 22%;
+    height: 79vh;
+    border-radius: 0px 10px 10px 0px;
+    
+  
+}
+.card-tittle{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.Signup-form{
+    font-size:medium;
+   
+}
+.forms{
+    width: 75%;
+    margin-left: 10%;
+    font-size: small;
+    margin-top: 0%;
+}
+.form-check{
+    font-size: small;
+}
+.btn-signup{
+    width: 100%;
+    margin-top: auto;
+}
+.line{
+    width: 75%;
+    margin-left: 10%;
+}
+.btn-div{
+    width: 100%;
+    display: flex;
+    margin: 10%;
+}
+.signup-image{
+height: 88vh;
+width: 60vw;
+left: 52.5%;
+right: 17.99%;
+top: 2.21%;
+bottom: 12.21%;
+
+
+mix-blend-mode: normal;
+border-radius: 0px 10px 10px 0px;
+}
+.btn-signupgoogle{
+     width:60%;
+     margin-left: 17%;
+     background-color: #dd4b39;
+     border: 0ch;
+
+}
+.btn-signupfacebook{
+    width:60%;
+    margin-left: 17%;
+    margin-top: 2%;
+    background-color: #3b5998;
+
+}
+.btn-close{
+    right:20px;
+    margin-top: 1%;
+    position: absolute;
+    background: #FFFFFF;
+}

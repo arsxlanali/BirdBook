@@ -1,0 +1,96 @@
+.row{
+    margin: 0px !important;
+}
+.Home_main{
+    color: #f4f6fc;
+    
+}
+.FirstFold{
+    height: 50%;
+    margin-top: 20vh ;
+    margin-left: 102px;
+  
+
+}
+.heading{
+   
+    width: 273px;
+height: 77px;
+left: 102px;
+
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 64px;
+line-height: 77px;
+
+color: #2420C7 !important;
+
+}
+.sub-heading{
+   
+width: 403px;
+height: 44px;
+left: 102px;
+
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 44px;
+/* identical to box height */
+
+
+color: #91599A;
+}
+.paragraph{
+
+   
+    width: 525px;
+    height: 82px;
+    left: 102px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+
+color: #91599A;
+}
+.button_b{
+    
+    width: 98px;
+    height: 43px;
+    left: calc(50% - 98px/2 - 569px);
+    top: 585px;
+   
+    
+font-size: 16px;
+line-height: 18px;
+
+color: #FFFFFF;
+
+    
+   
+    backdrop-filter: blur(2px);
+    /* Note: backdrop-filter has minimal browser support */
+    
+
+/* Note: backdrop-filter has minimal browser support */
+background: #8353bf;
+border-radius: 5px;
+font-weight:500;
+
+}
+.image{
+    box-sizing: border-box;
+
+position: absolute;
+width: 50vw;
+height: 500px;
+left: 580px;
+top: 68px;
+
+}
