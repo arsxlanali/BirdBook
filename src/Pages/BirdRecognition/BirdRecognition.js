@@ -43,6 +43,7 @@ class BirdRecognition extends React.Component {
     );
     const newWidth = Math.round(naturalWidth * ratio);
     const newHeight = Math.round(naturalHeight * ratio);
+    console.log("this is ", newWidth, newHeight);
     ctx.drawImage(
       image,
       0,
