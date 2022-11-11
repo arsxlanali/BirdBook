@@ -1,16 +1,12 @@
 import React from "react";
-// import {
-//   withScriptjs,
-//   withGoogleMap,
-//   GoogleMap,
-//   Marker,
-//   InfoWindow,
-// } from "react-google-maps";
-import withScriptjs from "react-google-maps/lib/withScriptjs";
-import withGoogleMap from "react-google-maps/lib/withGoogleMap";
-import GoogleMap from "react-google-maps/lib/components/GoogleMap";
-import Marker from "react-google-maps/lib/components/Marker";
-import InfoWindow from "react-google-maps/lib/components/InfoWindow";
+import {
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker,
+  InfoWindow,
+} from "react-google-maps";
+
 import { useState } from "react";
 
 // To use the Google Maps JavaScript API, you must register your app project on the Google API Console and get a Google API key which you can add to your app

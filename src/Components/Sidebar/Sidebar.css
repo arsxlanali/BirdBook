@@ -1,0 +1,31 @@
+.sidebar{
+    
+    width: 300px;
+    height: 90vh;
+    margin-top:0%;
+    background: #F3EAFF;
+}
+.div1{
+    padding-top: 40%;
+
+}
+.heading1{
+    background: #969696;
+    padding-left: 7%; 
+    font-size: 25px;
+    color: #e6d4fd;
+    height: 40px;
+
+}
+
+.li1{
+    margin-left: 15%;
+    line-height: 2rem;
+ 
+
+}
+.div2{
+    padding-top: 10%;
+   
+
+}

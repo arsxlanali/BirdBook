@@ -43,6 +43,7 @@ class BirdRecognition extends React.Component {
     );
     const newWidth = Math.round(naturalWidth * ratio);
     const newHeight = Math.round(naturalHeight * ratio);
+    console.log("this is ", newWidth, newHeight);
     ctx.drawImage(
       image,
       0,
@@ -143,7 +144,7 @@ class BirdRecognition extends React.Component {
             ) : (
               "Choose or drop a file."
             )}
-            <canvas id="canvas" width="640" height="640" />
+            <canvas id="canvas" width="320" height="320" />
           </MagicDropzone>
         ) : (
           <div className="Dropzone">Loading model...</div>
