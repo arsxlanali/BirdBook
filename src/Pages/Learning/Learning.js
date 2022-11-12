@@ -3,8 +3,8 @@ import "./Learning.css";
 
 export default function Learning() {
   return (
-    <aside className="sidebar body">
-      <div>
+    <div>
+      <aside className="sidebar body">
         <div className="div1">
           <h3 className="heading1">Learning Resources</h3>
           <div className="li1">
@@ -19,7 +19,7 @@ export default function Learning() {
             </Link>
           </div>
         </div>
-        <div className="div2">
+        <div className="div1">
           <h3 className="heading1">Bird Quizzes</h3>
           <div className="li1">
             <Link to="/Learning/VisualQuiz">
@@ -33,8 +33,8 @@ export default function Learning() {
             </Link>
           </div>
         </div>
-      </div>
+      </aside>
       <Outlet />
-    </aside>
+    </div>
   );
 }

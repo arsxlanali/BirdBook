@@ -1,18 +1,15 @@
 import { Card, Row, Col } from "react-bootstrap";
 import "./Videos.css";
 
-export default function Videos() {
+export default function Videos(props) {
   return (
-    <main>
-      <h1 className="video-title">Videos</h1>
+    <div className="vidoe-card" key={props._id}>
       <Card className="card-container">
         <video controls>
-          <source
-            src="https://res.cloudinary.com/dpxrvbatm/video/upload/v1666983550/samples/sea-turtle.mp4"
-            type="video/mp4"
-          ></source>
+          <source src={props.link} type="video/mp4"></source>
         </video>
       </Card>
-    </main>
+      <h4 className="Video-heading">{props.title}</h4>
+    </div>
   );
 }

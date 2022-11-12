@@ -41,12 +41,10 @@ const getErrorsFromValidationError = (validationError) => {
 };
 
 export default function LogIn(props) {
+  console.log("props", props);
   const dispatch = useDispatch();
+  const isOpen = useSelector((state) => state.login.isOpen);
   const onSubmit = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 400);
     dispatch(login({ values, setSubmitting }));
   };
   return (
@@ -82,7 +80,7 @@ export default function LogIn(props) {
                   <form onSubmit={handleSubmit}>
                     <div className="forms">
                       <div className="my-1">
-                        <label for="email" class="form-label">
+                        <label htmlFor="email" className="form-label">
                           Email*
                         </label>
                         <input
@@ -92,7 +90,7 @@ export default function LogIn(props) {
                           onChange={handleChange}
                           onBlur={handleBlur}
                           value={values.email}
-                          class="form-control"
+                          className="form-control"
                           placeholder="jobs@example.com"
                           required
                         />
@@ -101,7 +99,7 @@ export default function LogIn(props) {
                         {errors.email && touched.email && errors.email}
                       </div>
                       <div className="my-1">
-                        <label for="password" class="form-label">
+                        <label htmlFor="password" className="form-label">
                           Password*
                         </label>
                         <input
@@ -110,7 +108,7 @@ export default function LogIn(props) {
                           onChange={handleChange}
                           onBlur={handleBlur}
                           value={values.password}
-                          class="form-control"
+                          className="form-control"
                           id="password"
                           placeholder="**********"
                         />
@@ -120,12 +118,15 @@ export default function LogIn(props) {
                       </div>
                       <div className="form-check my-2">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="flexCheckDefault"
                         />
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <label
+                          className="form-check-label"
+                          htmlFor="flexCheckDefault"
+                        >
                           Remember me
                         </label>
                       </div>

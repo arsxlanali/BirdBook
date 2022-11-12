@@ -1,7 +1,9 @@
 import React from "react";
 import MagicDropzone from "react-magic-dropzone";
 import _birds from "./birds";
+import "./BirdRecognition.css"
 import "./styles.css";
+import { Card } from "react-bootstrap";
 const tf = require("@tensorflow/tfjs");
 
 const weights = "/web_model/model.json";
@@ -43,7 +45,6 @@ class BirdRecognition extends React.Component {
     );
     const newWidth = Math.round(naturalWidth * ratio);
     const newHeight = Math.round(naturalHeight * ratio);
-    console.log("this is ", newWidth, newHeight);
     ctx.drawImage(
       image,
       0,
@@ -126,10 +127,21 @@ class BirdRecognition extends React.Component {
 
   render() {
     return (
-      <div className="Dropzone-page">
+      <>
+      <div>
+        <div className="cover-img" style={{backgroundImage:'url("http://4kwallpapers.com/images/walls/thumbs_2t/8075.jpg")'}}>
+        <div>
+          <h2 className="bird-heading">Identify the birds you see with BirdBook</h2>
+          <p className="bird-para">Upload a photo of a bird and BirdBook will offer a possible match.</p>
+        </div>
+        </div>
+
+      </div>
+      <Card className="Recognition-container">
+      <div className="Dropzone-page ">
         {this.state.model ? (
           <MagicDropzone
-            className="Dropzone"
+            className="Dropzone dropzone-container"
             accept="image/jpeg, image/png, .jpg, .jpeg, .png"
             multiple={false}
             onDrop={this.onDrop}
@@ -138,18 +150,25 @@ class BirdRecognition extends React.Component {
               <img
                 alt="upload preview"
                 onLoad={this.onImageChange}
-                className="Dropzone-img"
+                className=""
                 src={this.state.preview}
               />
             ) : (
-              "Choose or drop a file."
+              "Upload or drop a file."
             )}
-            <canvas id="canvas" width="320" height="320" />
+            {/* <canvas id="canvas" width="320" height="320" /> */}
           </MagicDropzone>
         ) : (
-          <div className="Dropzone">Loading model...</div>
+          <div className="Dropzone dropzone-container">Loading model...</div>
         )}
       </div>
+
+      
+      <div>
+      <button type="submit" className=" btn-recognize "> Recognize</button> 
+      </div>
+      </Card>
+      </>
     );
   }
 }

@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import UplaodImg from "../../../Resuseable/UploadImg";
+import UploadAudio from "../../../Resuseable/UploadAudio";
 import CreatableSelect from "react-select/creatable";
 import Select from "react-select";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import "./AddQuiz.css";
+import { useSelector, useDispatch } from "react-redux";
+import { addQuiz } from "../../../redux/Slice/quizSlice";
 
 const validationSchema = function (values) {
   return Yup.object().shape({
     type: Yup.string(),
-    title: Yup.string()
+    text: Yup.string()
       .min(8, `Title has to be at least ${8} characters!`)
       .required("Title is required!"),
-    photo: Yup.string(),
+    media: Yup.string(),
   });
 };
 const validate = (getValidationSchema) => {
@@ -45,15 +48,20 @@ const createOption = (label) => ({
 const defaultOptions = [createOption("")];
 
 function AddQuiz() {
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState(defaultOptions);
   const [value, setValue] = useState(null);
   const [answers, setAnswers] = useState([]);
   const [optState, setOptState] = useState(true);
+  const [type, setType] = useState("visual");
   const onSubmit = (values, { setSubmitting }) => {
-    const obj = { ...values, answers: [...answers] };
-    console.log("this is obj", obj);
-    // dispatch(login({ values, setSubmitting }));
+    if (type == "simple") {
+      delete values.media;
+    }
+    const data = { ...values, answers: [...answers] };
+    console.log("this is data", data);
+    dispatch(addQuiz({ data, setSubmitting }));
   };
   const handleCreate = (inputValue) => {
     setIsLoading(true);
@@ -70,10 +78,10 @@ function AddQuiz() {
         <div className="container">
           <Formik
             initialValues={{
-              title: "",
+              text: "",
               type: "",
               // answers: [{ text: "", correct: false }],
-              photo: null,
+              media: null,
             }}
             validate={validate(validationSchema)}
             onSubmit={onSubmit}
@@ -90,20 +98,6 @@ function AddQuiz() {
               validateOnMount,
             }) => (
               <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label for="title">Title</label>
-                  <input
-                    id="title"
-                    name="title"
-                    type="text"
-                    className="form-control"
-                    value={values.title}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="text-danger">
-                  {errors.title && touched.title && errors.title}
-                </div>
                 <div className="form-group my-2">
                   <label for="type">Type</label>
                   <Select
@@ -111,6 +105,10 @@ function AddQuiz() {
                     classNamePrefix="select"
                     onChange={(e) => {
                       setFieldValue("type", e.value);
+                      setType(e.value);
+                      if (e.value == "simple") {
+                        setFieldValue("media", "");
+                      }
                     }}
                     defaultValue={{ value: "visual", label: "Visual" }}
                     name="type"
@@ -121,9 +119,21 @@ function AddQuiz() {
                     ]}
                   />
                 </div>
-                <div className="text-danger">
-                  {errors.type && touched.type && errors.type}
+                <div className="form-group">
+                  <label for="text">Title</label>
+                  <input
+                    id="text"
+                    name="text"
+                    type="text"
+                    className="form-control"
+                    value={values.text}
+                    onChange={handleChange}
+                  />
                 </div>
+                <div className="text-danger">
+                  {errors.text && touched.text && errors.text}
+                </div>
+
                 <div className="form-group my-2">
                   <label for="options">Options</label>
                   <CreatableSelect
@@ -152,16 +162,22 @@ function AddQuiz() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <UplaodImg field={setFieldValue} />
+                  {type == "visual" ? (
+                    <UplaodImg field={setFieldValue} image="media" />
+                  ) : (
+                    type == "audio" && (
+                      <UploadAudio field={setFieldValue} audios="media" />
+                    )
+                  )}
                 </div>
 
                 <div className="form-group"></div>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary my-4"
                   type="submit"
                   disabled={isSubmitting || !isValid || optState}
                 >
-                  {isSubmitting ? "Wait..." : "Log In"}
+                  {isSubmitting ? "Wait..." : "Submit"}
                 </button>
               </form>
             )}
