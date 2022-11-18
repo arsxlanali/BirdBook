@@ -3,8 +3,9 @@ import { Row, Col } from "react-bootstrap";
 import "./Podcast.css";
 
 export default function Podcast(props) {
+  // console.log("podcast", props.id);
   return (
-    <div className="podcast">
+    <div className="podcast" key={props.id}>
       <div>
         <img className="podcast-img" src={props.image} />
       </div>

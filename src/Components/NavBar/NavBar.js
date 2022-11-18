@@ -28,7 +28,7 @@ export default function NavBar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto my-2 my-lg-0 nav-text">
+          <Nav className="my-2 my-lg-0 nav-text">
             <Link
               className="me-3 text-end font-face-reg nav-link nav-itm nav-pages"
               to="/"
@@ -66,21 +66,21 @@ export default function NavBar() {
               Recognition
             </Link>
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2 hidden-md"
-              aria-label="Search"
-            />
-            <Button variant="outline-success" className="me-5">
-              Search
-            </Button>
+
+          <Form className="me-2 search">
+            <div className="form-group has-search">
+              <span className="fa fa-search form-control-feedback"></span>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search"
+              />
+            </div>
           </Form>
-          <div>
+          <div className="d-flex mx-3 login-signup">
             <button
               type="button"
-              className="btn btn-secondary me-2 btn-sm"
+              className="btn btn-primary me-3 btn-sm"
               onClick={() => setloginShow(true)}
             >
               LogIn

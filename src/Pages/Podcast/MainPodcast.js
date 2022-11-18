@@ -29,7 +29,7 @@ export default function MainPodcast() {
     },
   ];
   const podcast = arr.map((temp) => (
-    <Podcast key={temp.id} link={temp.link} image={temp.image} />
+    <Podcast key={temp.id} link={temp.link} image={temp.image} id={temp.id} />
   ));
   return (
     <main className="podcast-div">

@@ -1,96 +1,100 @@
-.row{
-    margin: 0px !important;
-}
-.Home_main{
+.home_main {
     color: #f4f6fc;
-    
+    height: 100vh;
+    top: 100px;
+
 }
-.FirstFold{
+
+.FirstFold {
     height: 50%;
-    margin-top: 20vh ;
+    margin-top: 30vh;
     margin-left: 102px;
-  
+
 
 }
-.heading{
-   
+
+.heading {
+
     width: 273px;
-height: 77px;
-left: 102px;
+    height: 77px;
+    left: 102px;
 
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 64px;
-line-height: 77px;
-
-color: #2420C7 !important;
-
-}
-.sub-heading{
-   
-width: 403px;
-height: 44px;
-left: 102px;
 
     font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 36px;
-line-height: 44px;
-/* identical to box height */
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 77px;
 
+    /* color: #2420C7 !important; */
+    background: -webkit-linear-gradient(#2420C7, #8426FC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
-color: #91599A;
 }
-.paragraph{
 
-   
+.sub-heading {
+
+    width: 403px;
+    height: 44px;
+    left: 102px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    /* identical to box height */
+
+
+    color: #91599A;
+}
+
+.paragraph {
+
+
     width: 525px;
     height: 82px;
     left: 102px;
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 20px;
-line-height: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
 
-color: #91599A;
+    color: #91599A;
 }
-.button_b{
-    
+
+.button_b {
+
     width: 98px;
-    height: 43px;
+    height: 35px;
     left: calc(50% - 98px/2 - 569px);
     top: 585px;
-   
-    
-font-size: 16px;
-line-height: 18px;
 
-color: #FFFFFF;
 
-    
-   
+    font-size: 16px;
+    line-height: 18px;
+
+    color: #FFFFFF;
+
+    border: none;
+
     backdrop-filter: blur(2px);
     /* Note: backdrop-filter has minimal browser support */
-    
 
-/* Note: backdrop-filter has minimal browser support */
-background: #8353bf;
-border-radius: 5px;
-font-weight:500;
+
+    /* Note: backdrop-filter has minimal browser support */
+    background: #8353bf;
+    border-radius: 5px;
+    font-weight: 500;
 
 }
-.image{
+
+.image {
     box-sizing: border-box;
-
-position: absolute;
-width: 50vw;
-height: 500px;
-left: 580px;
-top: 68px;
-
+    padding-top: 60px;
+    /* position: absolute; */
+    height: 100vh;
+    /* top: 60px; */
 }

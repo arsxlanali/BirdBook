@@ -2,6 +2,7 @@ import { Card, Row, Col } from "react-bootstrap";
 import "./Videos.css";
 
 export default function Videos(props) {
+  // console.log("vidoes", props._id);
   return (
     <div className="vidoe-card" key={props._id}>
       <Card className="card-container">

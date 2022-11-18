@@ -18,7 +18,10 @@ audio::-webkit-media-controls-panel {
 
 
 
-
+.btn-primary {
+  background-color: #8426FC !important;
+  border-color: #8426FC !important;
+}
 
 
 

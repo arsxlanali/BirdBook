@@ -31,6 +31,11 @@ function App() {
   return (
     <>
       <Router>
+        <Routes>
+          <Route path="Admin" element={<AdminSideBar />}>
+            <Route path="AddQuiz" element={<AddQuiz />} />
+          </Route>
+        </Routes>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} exact />
@@ -44,9 +49,6 @@ function App() {
           <Route path="Forum" element={<Forum />} />
           <Route path="Ecomerce" element={<Ecomerce />} />
           <Route path="BirdRecognition" element={<BirdRecognition />} />
-          <Route path="Admin" element={<AdminSideBar />}>
-            <Route path="AddQuiz" element={<AddQuiz />} />
-          </Route>
         </Routes>
       </Router>
       <ToastContainer autoClose={4000} limit={1} />

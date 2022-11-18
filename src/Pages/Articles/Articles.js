@@ -1,8 +1,9 @@
 import "./Articles.css";
 
 export default function Articles(props) {
+  // console.log("articles", props._id);
   return (
-    <article className="article" htmlFor={props._id}>
+    <article className="article" key={props._id}>
       <div className="article-content">
         <h3 className="card-title">{props.title}</h3>
         <p className="text-muted">

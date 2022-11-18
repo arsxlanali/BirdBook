@@ -84,7 +84,12 @@ function MarkerWithInfoWindow({ location }) {
               alt="Bird image"
               // styles={{ borderRadius: "5px" }}
             />
-            <a href={location.www} target="_blank" rel="noopener noreferrer">
+            <a
+              className="link-map"
+              href={location.www}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {location.title}
             </a>
           </div>
