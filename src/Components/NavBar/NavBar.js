@@ -20,7 +20,7 @@ export default function NavBar() {
         <Navbar.Brand>
           <Link to="/">
             <img
-              src="./Resources/nav_logo.webp"
+              src="https://res.cloudinary.com/dpxrvbatm/image/upload/v1668791466/nav_logo_ugorse.webp"
               alt="logo"
               className="nav-logo"
             ></img>

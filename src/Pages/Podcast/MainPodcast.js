@@ -5,25 +5,25 @@ export default function MainPodcast() {
   const arr = [
     {
       id: "1",
-      link: "https://res.cloudinary.com/dpxrvbatm/video/upload/v1666983550/samples/sea-turtle.mp4",
+      link: "https://res.cloudinary.com/dpxrvbatm/video/upload/v1668085234/horse_fi7xnu.ogg",
       image:
         "https://res.cloudinary.com/dpxrvbatm/image/upload/v1667038059/pmrxq2bznoqd6hvx00of.jpg",
     },
     {
       id: "2",
-      link: "https://res.cloudinary.com/dpxrvbatm/video/upload/v1666983550/samples/sea-turtle.mp4",
+      link: "https://res.cloudinary.com/dpxrvbatm/video/upload/v1668085234/horse_fi7xnu.ogg",
       image:
         "https://res.cloudinary.com/dpxrvbatm/image/upload/v1667038059/pmrxq2bznoqd6hvx00of.jpg",
     },
     {
       id: "3",
-      link: "https://res.cloudinary.com/dpxrvbatm/video/upload/v1666983550/samples/sea-turtle.mp4",
+      link: "https://res.cloudinary.com/dpxrvbatm/video/upload/v1668085234/horse_fi7xnu.ogg",
       image:
         "https://res.cloudinary.com/dpxrvbatm/image/upload/v1667038059/pmrxq2bznoqd6hvx00of.jpg",
     },
     {
       id: "4",
-      link: "https://res.cloudinary.com/dpxrvbatm/video/upload/v1666983550/samples/sea-turtle.mp4",
+      link: "https://res.cloudinary.com/dpxrvbatm/video/upload/v1668085234/horse_fi7xnu.ogg",
       image:
         "https://res.cloudinary.com/dpxrvbatm/image/upload/v1667038059/pmrxq2bznoqd6hvx00of.jpg",
     },

@@ -17,13 +17,20 @@
     color: #e6d4fd;
 }
 .li1 {
-    margin: 0 0 15% 15%;
+    margin: 10% 0 10% 15%;
+    /* border-left: px solid blue; */
 }
 
 .li1 > a {
     /* margin-left: 15%; */
-    padding: 10px 0 10px 10px;
+    /* padding: 10px 0 10px 10px; */
+    position: relative;
     text-decoration: none;
     color: #464646;
+}
+.li1> a > li {
+    padding: 15px 0 15px 0 ;
+    /* position:absolute; */
+    left: -10px;
 }
 

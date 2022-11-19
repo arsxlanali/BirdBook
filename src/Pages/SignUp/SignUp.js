@@ -219,7 +219,7 @@ export default function SignUp(props) {
             </div>
             <div className="col-md-6 ">
               <img
-                src="./resources/dominik.webp"
+                src="https://res.cloudinary.com/dpxrvbatm/image/upload/v1668791238/dominik_khbyta.webp"
                 className="img-fluid rounded-start signup-image"
                 alt="..."
               />

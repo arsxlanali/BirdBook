@@ -34,8 +34,8 @@
 } */
 
 .nav-logo {
-    width: 50.68px;
-    height: 42.75px;
+    width: 40px;
+    height: 35px;
     margin-left: 1vw;
     top: 10px;
 }
@@ -51,9 +51,8 @@
     position: absolute;
     z-index: 2;
     display: block;
-    /* width: 2.375rem; */
-    /* height: 1rem !important; */
-    /* line-height: 2.375rem; */
+    margin-top: 9px;
+        margin-left: 11px;
     text-align: center;
     pointer-events: none;
     color: #aaa;

@@ -41,7 +41,7 @@ const getErrorsFromValidationError = (validationError) => {
 };
 
 export default function LogIn(props) {
-  console.log("props", props);
+  // console.log("props", props);
   const dispatch = useDispatch();
   const isOpen = useSelector((state) => state.login.isOpen);
   const onSubmit = (values, { setSubmitting }) => {
@@ -160,7 +160,7 @@ export default function LogIn(props) {
             </div>
             <div className="col-md-6">
               <img
-                src="./resources/dominik.webp"
+                src="https://res.cloudinary.com/dpxrvbatm/image/upload/v1668791238/dominik_khbyta.webp"
                 className="img-fluid rounded-start signup-image"
                 alt="..."
               />

@@ -43,7 +43,9 @@ function App() {
             <Route path="Articles" element={<MainArticles />} />
             <Route path="Videos" element={<MainVideos />} />
             <Route path="Podcast" element={<MainPodcast />}></Route>
-            <Route path="Quiz" element={<Quiz />} />
+            <Route path="VisualQuiz" element={<Quiz />} />
+            <Route path="GeographicalQuiz" element={<Quiz />} />
+            <Route path="SoundQuiz" element={<Quiz />} />
           </Route>
           <Route path="Maps" element={<ReactGoogleMaps />} />
           <Route path="Forum" element={<Forum />} />
