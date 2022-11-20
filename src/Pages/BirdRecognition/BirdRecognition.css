@@ -1,0 +1,68 @@
+.cover-img{
+    width: 100%;
+    height: 80vh;
+    background-repeat:none;
+    background-position:center;
+    background-size:cover;
+}
+.bird-heading{
+   padding-top: 10%;
+    margin-left: 10%;
+    width: 50%;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 40px;
+line-height: 42px;
+    color:#211ea5;
+}
+.bird-para{
+    margin-left: 10%;
+    width: 38%;
+    margin-top: 2%;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 22px;
+    color:#2e2424;
+}
+.dropzone-container{
+    height: 45vh !important;
+    width: 30vw !important;
+    margin-left: 0%;
+    margin-top: 3%;
+    background-color:#cac1d2 !important;
+}
+.Recognition-container{
+   
+width: 100%;
+height: 100vh;
+border-radius: 0%;
+
+margin-top: 0%;
+
+
+background: #d4d8dc !important;
+}
+.btn-recognize{
+    
+width: 174px;
+height: 39px;
+margin-left: 45%;
+margin-bottom: 4%;
+
+background: #8426FC;
+border-radius: 8px;
+
+}
+.para{
+    margin-top: 2%;
+   
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+}

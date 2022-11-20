@@ -8,12 +8,14 @@ import "bootstrap/dist/js/bootstrap.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import store from "./redux/store";
 import { Provider } from "react-redux";
-// const root = ReactDOM.createRoot(document.getElementById('root'));
+import { DarkModeContextProvider } from "./context/darkModeContext";
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <DarkModeContextProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </DarkModeContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

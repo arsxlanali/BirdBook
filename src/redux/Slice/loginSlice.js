@@ -1,17 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import axios from "axios";
-// import history from "src/hisotry";
+import { Navigate } from "react-router-dom";
 import { baseURL } from "../../apiUrl";
 
 const initialState = {
-  entities: [],
-  isLoading: false,
+  loginRes: null,
+  signupRes: null,
+  isOpen: false,
 };
 
 export const login = createAsyncThunk(
   "users/login",
-  async ({ values, setSubmitting, setErrors }) => {
+  async ({ values, setSubmitting }) => {
     console.log("values", values);
     axios
       .post(`${baseURL}/auth`, values)
@@ -22,7 +23,8 @@ export const login = createAsyncThunk(
         localStorage.setItem("Name", response.data.name);
         localStorage.setItem("Email", response.data.email);
         localStorage.setItem("Id", response.data._id);
-        // toast.success(response?.data?.message);
+        toast.success("Successfull loged in");
+        // navigate("/");
         return response?.data;
       })
       .catch((error) => {
@@ -32,34 +34,19 @@ export const login = createAsyncThunk(
       });
   }
 );
-// export const PasswordRest = createAsyncThunk(
-//   "PasswordRest",
-//   async ({ values, setSubmitting, setErrors }) => {
-//     const id = values["id"];
-//     delete values["id"];
-//     // delete values["accept2"];
-//     const isDefault = localStorage.getItem("isDefualt");
-//     if (isDefault) {
-//       values["oldPassword"] = "tdc@1234";
-//     }
-//     console.log("This is pass", values);
-//     try {
-//       const res = await axios.post(
-//         `${baseURL}/users/resetPassword/${id}`,
-//         values
-//       );
-//       localStorage.setItem("isDefualt", false);
-//       setSubmitting(false);
-//       setTimeout(() => {
-//         history.push("/viewsheet");
-//       }, 3000);
-//       toast.success(res.data.message);
-//       return res?.data;
-//     } catch (error) {
-//       setSubmitting(false);
-//     }
-//   }
-// );
+export const signup = createAsyncThunk(
+  "signup",
+  async ({ values, setSubmitting }) => {
+    // console.log("This is pass", values);
+    try {
+      const res = await axios.post(`${baseURL}/register`, values);
+      toast.success("Sucessfully Signed up");
+      return res?.data;
+    } catch (error) {
+      setSubmitting(false);
+    }
+  }
+);
 export const loginSlice = createSlice({
   name: "login",
   initialState,
@@ -67,28 +54,18 @@ export const loginSlice = createSlice({
     clearLogin: (state) => {
       state.entities = [];
     },
+    // isOpen: (state) => {
+    //   state.isOpen = true;
+    // },
   },
   extraReducers: {
-    [login.pending]: (state) => {
-      state.isLoading = true;
-    },
     [login.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
-      state.entities = payload;
+      state.loginRes = payload;
     },
-    // [PasswordRest.rejected]: (state) => {
-    //   state.isLoading = false;
-    // },
-    // [PasswordRest.pending]: (state) => {
-    //   state.isLoading = true;
-    // },
-    // [PasswordRest.fulfilled]: (state, { payload }) => {
-    //   state.isLoading = false;
-    //   state.entities = payload;
-    // },
-    // [PasswordRest.rejected]: (state) => {
-    //   state.isLoading = false;
-    // },
+    [signup.fulfilled]: (state, { payload }) => {
+      state.signupRes = payload;
+      state.isOpen = true;
+    },
   },
 });
 

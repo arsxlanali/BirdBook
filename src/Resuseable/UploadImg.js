@@ -4,14 +4,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import MagicDropzone from "react-magic-dropzone";
 import { baseURL } from "../apiUrl";
-import { fileAccepted } from "react-magic-dropzone/build/utils";
 
 const token = localStorage.getItem("Token");
 
 const api_key = "252944217837197";
 const cloud_name = "dpxrvbatm";
 
-function UplaodImg({ field }) {
+function UplaodImg({ field, image }) {
   const [preview, setPreview] = useState(null);
   const [signature, setSignature] = useState("");
   const data = new FormData();
@@ -21,26 +20,26 @@ function UplaodImg({ field }) {
     data.append("api_key", api_key);
     data.append("signature", signature.signature);
     data.append("timestamp", signature.timestamp);
-    // console.log("this is preview", accepted);
-
-    // console.log("THis is ", data);
-    const cloudinaryResponse = await axios.post(
+    console.log(
+      "Data",
+      accepted[0],
+      api_key,
+      signature.signature,
+      signature.timestamp
+    );
+    const axiousUnintecepted = axios.create();
+    const cloudinaryResponse = await axiousUnintecepted.post(
       `https://api.cloudinary.com/v1_1/${cloud_name}/auto/upload`,
       data,
       {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-        // onUploadProgress: function (e) {
-        //   // console.log(e.loaded / e.total);
-        // },
       }
     );
-    field("photo", cloudinaryResponse.data.secure_url);
-    data.append("url", cloudinaryResponse.data.secure_url);
+    field(image, cloudinaryResponse.data.secure_url);
   };
   useEffect(() => {
-    // console.log("this is data", baseURL, token);
     axios
       .get(`${baseURL}/img/getSignature`, {
         headers: { Authorization: `Bearer ${token}` },
