@@ -5,6 +5,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../../redux/Slice/loginSlice";
+import { useEffect, useState } from "react";
 const validationSchema = function (values) {
   return Yup.object().shape({
     email: Yup.string()
@@ -40,16 +41,31 @@ const getErrorsFromValidationError = (validationError) => {
   }, {});
 };
 
-export default function LogIn(props) {
+export default function LogIn({ show, onHide }) {
   // console.log("props", props);
   const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.login.isOpen);
+  const [open, setOpen] = useState(true);
+  const { logedIn } = useSelector((state) => state.login);
   const onSubmit = (values, { setSubmitting }) => {
     dispatch(login({ values, setSubmitting }));
   };
+  useEffect(() => {
+    setTimeout(() => {
+      setOpen(logedIn);
+    }, 5000);
+    // setOpen(logedIn);
+    console.log("this is", typeof logedIn);
+    if (logedIn == true) {
+      console.log("Hey this s si safhkdjfjas");
+      localStorage.setItem("LogedIn", true);
+    }
+  }, [logedIn]);
+  // console.log("this is logedIn", logedIn, props);
   return (
     <Modal
-      {...props}
+      show={show && !open}
+      onHide={onHide}
+      // {...(props && logedIn)}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
@@ -168,7 +184,7 @@ export default function LogIn(props) {
                 type="button"
                 className="btn-close btn-close-white"
                 aria-label="Close"
-                onClick={props.onHide}
+                onClick={onHide}
               ></button>
             </div>
           </div>

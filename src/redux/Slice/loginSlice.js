@@ -5,9 +5,9 @@ import { Navigate } from "react-router-dom";
 import { baseURL } from "../../apiUrl";
 
 const initialState = {
-  loginRes: null,
-  signupRes: null,
-  isOpen: false,
+  // loginRes: null,
+  // signupRes: null,
+  logedIn: false,
 };
 
 export const login = createAsyncThunk(
@@ -23,6 +23,8 @@ export const login = createAsyncThunk(
         localStorage.setItem("Name", response.data.name);
         localStorage.setItem("Email", response.data.email);
         localStorage.setItem("Id", response.data._id);
+        localStorage.setItem("LogedIn", true);
+        window.dispatchEvent(new Event("storage"));
         toast.success("Successfull loged in");
         // navigate("/");
         return response?.data;
@@ -54,17 +56,18 @@ export const loginSlice = createSlice({
     clearLogin: (state) => {
       state.entities = [];
     },
-    // isOpen: (state) => {
-    //   state.isOpen = true;
+    // logedIn: (state) => {
+    //   state.logedIn = true;
     // },
   },
   extraReducers: {
-    [login.fulfilled]: (state, { payload }) => {
-      state.loginRes = payload;
+    [login.fulfilled]: (state) => {
+      // state.loginRes = payload;
+      state.logedIn = true;
     },
-    [signup.fulfilled]: (state, { payload }) => {
-      state.signupRes = payload;
-      state.isOpen = true;
+    [signup.fulfilled]: (state) => {
+      // state.signupRes = payload;
+      state.logedIn = true;
     },
   },
 });
