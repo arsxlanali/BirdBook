@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 import { baseURL } from "../../apiUrl";
 
 const initialState = {
-  // loginRes: null,
+  // loginRes: [""],
   // signupRes: null,
   logedIn: false,
 };
@@ -23,8 +23,6 @@ export const login = createAsyncThunk(
         localStorage.setItem("Name", response.data.name);
         localStorage.setItem("Email", response.data.email);
         localStorage.setItem("Id", response.data._id);
-        localStorage.setItem("LogedIn", true);
-        window.dispatchEvent(new Event("storage"));
         toast.success("Successfull loged in");
         // navigate("/");
         return response?.data;
@@ -42,7 +40,8 @@ export const signup = createAsyncThunk(
     // console.log("This is pass", values);
     try {
       const res = await axios.post(`${baseURL}/register`, values);
-      toast.success("Sucessfully Signed up");
+      setSubmitting(false);
+      toast.success("Sucessfully Signed up!");
       return res?.data;
     } catch (error) {
       setSubmitting(false);
@@ -53,24 +52,20 @@ export const loginSlice = createSlice({
   name: "login",
   initialState,
   reducers: {
-    clearLogin: (state) => {
-      state.entities = [];
+    logOut: (state) => {
+      state.logedIn = false;
     },
     // logedIn: (state) => {
     //   state.logedIn = true;
     // },
   },
   extraReducers: {
-    [login.fulfilled]: (state) => {
-      // state.loginRes = payload;
-      state.logedIn = true;
-    },
-    [signup.fulfilled]: (state) => {
-      // state.signupRes = payload;
+    [login.fulfilled]: (state, action) => {
+      state.loginRes = action.payload;
       state.logedIn = true;
     },
   },
 });
 
-export const { clearLogin } = loginSlice.actions;
+export const { logOut } = loginSlice.actions;
 export default loginSlice.reducer;

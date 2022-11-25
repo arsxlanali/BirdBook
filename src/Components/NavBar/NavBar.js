@@ -15,24 +15,24 @@ import Logout from "@mui/icons-material/Logout";
 import SignUp from "../../Pages/SignUp/SignUp";
 import LogIn from "../../Pages/LogIn/LogIn";
 
-import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Dropdown from "react-bootstrap/Dropdown";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../../Pages/SignUp/SignUp.css";
 import "../../Pages/LogIn/LogIn.css";
-
+import { useDispatch } from "react-redux";
+import { getArticles } from "../../redux/Slice/articleSlice";
 // import React from "react";
 import { Navbar, Nav, Form, Container, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import { logOut } from "../../redux/Slice/loginSlice";
 export default function NavBar() {
   const { logedIn } = useSelector((state) => state.login);
   const [logInState, setLogInState] = React.useState(
     useSelector((state) => state.login.logedIn)
   );
-  // cons
+  const dispatch = useDispatch();
   const [LoginShow, setloginShow] = React.useState(false);
   const [SignupShow, setSignupShow] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -43,18 +43,6 @@ export default function NavBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  // const [logedIn, setLogedIn] = React.useState(false);
-  // React.useEffect(() => {
-  //   const listenStorageChange = () => {
-  //     if (localStorage.getItem("LogedIn") == true) {
-  //       setLogedIn(true);
-  //     } else {
-  //       setLogedIn(false);
-  //     }
-  //   };
-  //   window.addEventListener("storage", listenStorageChange);
-  //   return () => window.removeEventListener("storage", listenStorageChange);
-  // }, []);
 
   return (
     <Navbar bg="light" expand="lg" className="Nav--bar row navbar-default">
@@ -80,6 +68,9 @@ export default function NavBar() {
             <Link
               className="me-3 text-end font-face-reg nav-link nav-itm nav-pages"
               to="/Learning/Articles"
+              onClick={() => {
+                dispatch(getArticles());
+              }}
             >
               Learning
             </Link>
@@ -173,7 +164,12 @@ export default function NavBar() {
                     <Avatar /> Profile
                   </MenuItem>
                   <Divider />
-                  <MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      dispatch(logOut());
+                      localStorage.clear();
+                    }}
+                  >
                     <ListItemIcon>
                       <Logout fontSize="small" />
                     </ListItemIcon>

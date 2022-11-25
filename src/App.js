@@ -26,14 +26,12 @@ import Login from "./Pages/Admin/login/Login";
 import List from "./Pages/Admin/list/List";
 import Single from "./Pages/Admin/single/Single";
 import New from "./Pages/Admin/new/New";
-import { DarkModeContext } from "./context/darkModeContext";
 import NetworkService from "./network-service";
 import { ToastContainer, toast } from "react-toastify";
 import { productInputs, userInputs } from "./formSource";
 import "react-toastify/dist/ReactToastify.css";
 NetworkService.setupInterceptorsRequest();
 function App() {
-  const { darkMode } = useContext(DarkModeContext);
   return (
     <>
       <Router>

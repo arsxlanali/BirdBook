@@ -44,26 +44,14 @@ const getErrorsFromValidationError = (validationError) => {
 export default function LogIn({ show, onHide }) {
   // console.log("props", props);
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(true);
   const { logedIn } = useSelector((state) => state.login);
   const onSubmit = (values, { setSubmitting }) => {
     dispatch(login({ values, setSubmitting }));
   };
-  useEffect(() => {
-    setTimeout(() => {
-      setOpen(logedIn);
-    }, 5000);
-    // setOpen(logedIn);
-    console.log("this is", typeof logedIn);
-    if (logedIn == true) {
-      console.log("Hey this s si safhkdjfjas");
-      localStorage.setItem("LogedIn", true);
-    }
-  }, [logedIn]);
   // console.log("this is logedIn", logedIn, props);
   return (
     <Modal
-      show={show && !open}
+      show={show && !logedIn}
       onHide={onHide}
       // {...(props && logedIn)}
       size="lg"

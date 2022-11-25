@@ -1,6 +1,9 @@
 import { Outlet, Link } from "react-router-dom";
 import "./Learning.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { getArticles } from "../../redux/Slice/articleSlice";
 export default function Learning() {
   const [state, setState] = useState([true, false, false, false, false, false]);
   const [headingBack, setHeadingBack] = useState([true, false]);
@@ -8,7 +11,9 @@ export default function Learning() {
   const preStyle = { color: "#464646" };
   const headStlye = { backgroundColor: "#8426FC" };
   const preHeadstyle = { backgroundColor: "#969696" };
-  console.log("log", state[1]);
+  // console.log("log", state[1]);
+  const dispatch = useDispatch();
+  // const { articles } = useSelector((state) => state.article);
   return (
     <div>
       <aside className="sidebar body">
@@ -20,7 +25,12 @@ export default function Learning() {
             Learning Resources
           </h3>
           <div className="li1">
-            <Link to="/Learning/Articles">
+            <Link
+              to="/Learning/Articles"
+              onClick={() => {
+                dispatch(getArticles());
+              }}
+            >
               <li
                 style={state[0] ? styles : preStyle}
                 onClick={() => {

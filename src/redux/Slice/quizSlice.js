@@ -10,8 +10,8 @@ const initialState = {
 export const addQuiz = createAsyncThunk(
   "addQuiz",
   async ({ data, setSubmitting }) => {
-    const token = localStorage.getItem("Token");
-    console.log("token", data);
+    // const token = localStorage.getItem("Token");
+    // console.log("token", data);
     try {
       const res = await axios.post(`${baseURL}/questions`, data);
       setSubmitting(false);
