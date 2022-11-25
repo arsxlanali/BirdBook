@@ -9,7 +9,9 @@ import * as Yup from "yup";
 import "./AddQuiz.css";
 import { useSelector, useDispatch } from "react-redux";
 import { addQuiz } from "../../../redux/Slice/quizSlice";
-
+import Sidebar from "../../../Components/Sidebar/SidebarAdmin";
+import Navbar from "../../../Components/NavBar/NavbarAdmin";
+import Container from "@mui/material/Container";
 const validationSchema = function (values) {
   return Yup.object().shape({
     type: Yup.string(),
@@ -73,118 +75,133 @@ function AddQuiz() {
     }, 500);
   };
   return (
-    <main>
-      <Card className="card-container">
-        <div className="container">
-          <Formik
-            initialValues={{
-              text: "",
-              type: "",
-              // answers: [{ text: "", correct: false }],
-              media: null,
-            }}
-            validate={validate(validationSchema)}
-            onSubmit={onSubmit}
-          >
-            {({
-              values,
-              errors,
-              touched,
-              handleSubmit,
-              handleChange,
-              setFieldValue,
-              isSubmitting,
-              isValid,
-              validateOnMount,
-            }) => (
-              <form onSubmit={handleSubmit}>
-                <div className="form-group my-2">
-                  <label for="type">Type</label>
-                  <Select
-                    className="basic-single"
-                    classNamePrefix="select"
-                    onChange={(e) => {
-                      setFieldValue("type", e.value);
-                      setType(e.value);
-                      if (e.value == "simple") {
-                        setFieldValue("media", "");
-                      }
-                    }}
-                    defaultValue={{ value: "visual", label: "Visual" }}
-                    name="type"
-                    options={[
-                      { value: "visual", label: "Visual" },
-                      { value: "audio", label: "Audio" },
-                      { value: "simple", label: "Simple" },
-                    ]}
-                  />
-                </div>
-                <div className="form-group">
-                  <label for="text">Title</label>
-                  <input
-                    id="text"
-                    name="text"
-                    type="text"
-                    className="form-control"
-                    value={values.text}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="text-danger">
-                  {errors.text && touched.text && errors.text}
-                </div>
+    <div className="list">
+      <Sidebar />
+      <div className="listContainer">
+        <Navbar />
+        <Container maxWidth="sm" className="pt-5">
+          <Card className="card-container">
+            <div className="container">
+              <Formik
+                initialValues={{
+                  text: "",
+                  type: "",
+                  // answers: [{ text: "", correct: false }],
+                  media: null,
+                }}
+                validate={validate(validationSchema)}
+                onSubmit={onSubmit}
+              >
+                {({
+                  values,
+                  errors,
+                  touched,
+                  handleSubmit,
+                  handleChange,
+                  setFieldValue,
+                  isSubmitting,
+                  isValid,
+                  validateOnMount,
+                }) => (
+                  <form onSubmit={handleSubmit}>
+                    <div className="form-group my-2">
+                      <label for="type">Type</label>
+                      <Select
+                        className="basic-single"
+                        classNamePrefix="select"
+                        onChange={(e) => {
+                          setFieldValue("type", e.value);
+                          setType(e.value);
+                          if (e.value == "simple") {
+                            setFieldValue("media", "");
+                          }
+                        }}
+                        defaultValue={{ value: "visual", label: "Visual" }}
+                        name="type"
+                        options={[
+                          { value: "visual", label: "Visual" },
+                          { value: "audio", label: "Audio" },
+                          { value: "simple", label: "Simple" },
+                        ]}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label for="text">Title</label>
+                      <input
+                        id="text"
+                        name="text"
+                        type="text"
+                        className="form-control"
+                        value={values.text}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="text-danger">
+                      {errors.text && touched.text && errors.text}
+                    </div>
 
-                <div className="form-group my-2">
-                  <label for="options">Options</label>
-                  <CreatableSelect
-                    name="options"
-                    isClearable
-                    isDisabled={isLoading}
-                    isLoading={isLoading}
-                    onChange={(newValue) => {
-                      setValue(newValue);
-                      // console.log("This is opions", options);
-                      let array = [];
-                      for (const option of options.splice(1, options.length)) {
-                        // console.log("thishsishs", option.label);
-                        if (newValue.label == option.label) {
-                          array.push({ text: option.label, correct: "true" });
-                        } else {
-                          array.push({ text: option.label, correct: "false" });
-                        }
-                      }
-                      setAnswers(array);
-                      setOptState(false);
-                    }}
-                    onCreateOption={handleCreate}
-                    options={options}
-                    value={value}
-                  />
-                </div>
-                <div className="form-group my-2">
-                  {type == "visual" ? (
-                    <UplaodImg field={setFieldValue} image="media" />
-                  ) : (
-                    type == "audio" && (
-                      <UploadAudio field={setFieldValue} audios="media" />
-                    )
-                  )}
-                </div>
+                    <div className="form-group my-2">
+                      <label for="options">Options</label>
+                      <CreatableSelect
+                        name="options"
+                        isClearable
+                        isDisabled={isLoading}
+                        isLoading={isLoading}
+                        onChange={(newValue) => {
+                          setValue(newValue);
+                          // console.log("This is opions", options);
+                          let array = [];
+                          for (const option of options.splice(
+                            1,
+                            options.length
+                          )) {
+                            // console.log("thishsishs", option.label);
+                            if (newValue.label == option.label) {
+                              array.push({
+                                text: option.label,
+                                correct: "true",
+                              });
+                            } else {
+                              array.push({
+                                text: option.label,
+                                correct: "false",
+                              });
+                            }
+                          }
+                          setAnswers(array);
+                          setOptState(false);
+                        }}
+                        onCreateOption={handleCreate}
+                        options={options}
+                        value={value}
+                      />
+                    </div>
+                    <div className="form-group my-2">
+                      {type == "visual" ? (
+                        <UplaodImg field={setFieldValue} image="media" />
+                      ) : (
+                        type == "audio" && (
+                          <UploadAudio field={setFieldValue} audios="media" />
+                        )
+                      )}
+                    </div>
 
-                <div className="form-group"></div>
-                <button
-                  className="btn btn-primary my-4"
-                  type="submit"
-                  disabled={isSubmitting || !isValid || optState}
-                >
-                  {isSubmitting ? "Wait..." : "Submit"}
-                </button>
-              </form>
-            )}
-          </Formik>
-        </div>
-      </Card>
-    </main>
+                    <div className="form-group"></div>
+                    <button
+                      className="btn btn-primary my-4"
+                      type="submit"
+                      disabled={isSubmitting || !isValid || optState}
+                    >
+                      {isSubmitting ? "Wait..." : "Submit"}
+                    </button>
+                  </form>
+                )}
+              </Formik>
+            </div>
+          </Card>
+        </Container>
+      </div>
+    </div>
   );
 }
 

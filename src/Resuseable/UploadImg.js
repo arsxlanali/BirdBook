@@ -20,7 +20,15 @@ function UplaodImg({ field, image }) {
     data.append("api_key", api_key);
     data.append("signature", signature.signature);
     data.append("timestamp", signature.timestamp);
-    const cloudinaryResponse = await axios.post(
+    console.log(
+      "Data",
+      accepted[0],
+      api_key,
+      signature.signature,
+      signature.timestamp
+    );
+    const axiousUnintecepted = axios.create();
+    const cloudinaryResponse = await axiousUnintecepted.post(
       `https://api.cloudinary.com/v1_1/${cloud_name}/auto/upload`,
       data,
       {

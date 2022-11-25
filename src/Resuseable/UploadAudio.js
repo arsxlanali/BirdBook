@@ -59,8 +59,8 @@ const UploadAudio = ({ field, audios }) => {
       data.append("timestamp", signature.timestamp);
       // console.log("this is preview", accepted);
 
-      // console.log("THis is ", data);
-      const cloudinaryResponse = await axios.post(
+      const axiousUnintecepted = axios.create();
+      const cloudinaryResponse = await axiousUnintecepted.post(
         `https://api.cloudinary.com/v1_1/${cloud_name}/auto/upload`,
         data,
         {
