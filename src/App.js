@@ -13,6 +13,7 @@ import Forum from "./Pages/Forum/Forum";
 import Ecomerce from "./Pages/Ecomerce/Ecomerce";
 
 import Quiz from "./Pages/Quiz/Quiz";
+import Result from "./Pages/Quiz/Result";
 import MainVideos from "./Pages/Videos/MainVideos";
 import MainArticles from "./Pages/Articles/MainArticle";
 import AddQuiz from "./Pages/Admin/AddQuiz/AddQuiz";
@@ -76,9 +77,13 @@ function App() {
                 <Route path="Articles" element={<MainArticles />} />
                 <Route path="Videos" element={<MainVideos />} />
                 <Route path="Podcast" element={<MainPodcast />}></Route>
-                <Route path="VisualQuiz" element={<Quiz />} />
-                <Route path="GeographicalQuiz" element={<Quiz />} />
-                <Route path="SoundQuiz" element={<Quiz />} />
+                <Route path="VisualQuiz" element={<Quiz type={"visual"} />} />
+                <Route
+                  path="GeographicalQuiz"
+                  element={<Quiz type={"simple"} />}
+                />
+                <Route path="SoundQuiz" element={<Quiz type={"audio"} />} />
+                <Route path="Result" element={<Result />} />
               </Route>
               <Route path="Maps" element={<ReactGoogleMaps />} />
               <Route path="Forum" element={<Forum />} />

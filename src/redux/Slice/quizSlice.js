@@ -4,7 +4,9 @@ import { baseURL } from "../../apiUrl";
 import axios from "axios";
 
 const initialState = {
-  qustions: [],
+  score: 0,
+  total: 2,
+  questions: [],
 };
 
 export const addQuiz = createAsyncThunk(
@@ -25,7 +27,7 @@ export const addQuiz = createAsyncThunk(
 );
 export const getQuiz = createAsyncThunk("getQuiz", async (data) => {
   // const token = localStorage.getItem("Token");
-  // console.log("token", data);
+  console.log("token", data);
   try {
     const res = await axios.post(`${baseURL}/questions/getAll`, data);
     // setSubmitting(false);
@@ -41,15 +43,21 @@ export const quizSlice = createSlice({
   initialState,
   reducers: {
     clearQuiz: (state) => {
-      state.qustions = [];
+      state.questions = [];
+      state.score = 0;
+      state.total = 0;
+    },
+    increaseScore: (state) => {
+      state.score++;
     },
   },
   extraReducers: {
     [getQuiz.fulfilled]: (state, { payload }) => {
-      state.qustions = payload;
+      state.questions = payload;
+      state.total = payload.length;
     },
   },
 });
 
-export const { clearQuiz } = quizSlice.actions;
+export const { clearQuiz, increaseScore } = quizSlice.actions;
 export default quizSlice.reducer;
