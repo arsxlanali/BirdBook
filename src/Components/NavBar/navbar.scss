@@ -1,32 +1,32 @@
-.navbar {
+.navbar-admin {
   height: 50px;
+  background-color: white;
   border-bottom: 0.5px solid rgb(231, 228, 228);
   display: flex;
+  width: 100%;
   align-items: center;
   font-size: 14px;
   color: #555;
+  top: 0;
+  position: fixed !important;
 
   .wrapper {
     width: 100%;
-    padding: 0 20px 0  20px;
+    padding: 20px 20px 20px  20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    .search {
+  .top {
+      height: 50px;
       display: flex;
       align-items: center;
-      border: 0.5px solid lightgray;
-      padding: 3px;
-
-      input {
-        border: none;
-        outline: none;
-        background: transparent;
-
-        &::placeholder {
-          font-size: 12px;
-        }
+      justify-content: center;
+  
+      .logo {
+        font-size: 20px;
+        font-weight: bold;
+        color: #6439ff;
       }
     }
 
@@ -40,9 +40,6 @@
         margin-right: 20px;
         position: relative;
 
-        .icon {
-          font-size: 20px;
-        }
 
         .avatar {
           width: 30px;
@@ -50,21 +47,6 @@
           border-radius: 50%;
         }
 
-        .counter {
-          width: 15px;
-          height: 15px;
-          background-color: red;
-          border-radius: 50%;
-          color: white;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 10px;
-          font-weight: bold;
-          position: absolute;
-          top: -5px;
-          right: -5px;
-        }
       }
     }
   }

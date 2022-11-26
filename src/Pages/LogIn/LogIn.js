@@ -4,8 +4,9 @@ import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../../redux/Slice/loginSlice";
+import { loginAction } from "../../redux/Slice/loginSlice";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 const validationSchema = function (values) {
   return Yup.object().shape({
     email: Yup.string()
@@ -43,10 +44,11 @@ const getErrorsFromValidationError = (validationError) => {
 
 export default function LogIn({ show, onHide }) {
   // console.log("props", props);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { logedIn } = useSelector((state) => state.login);
   const onSubmit = (values, { setSubmitting }) => {
-    dispatch(login({ values, setSubmitting }));
+    dispatch(loginAction({ values, setSubmitting, navigate }));
   };
   // console.log("this is logedIn", logedIn, props);
   return (

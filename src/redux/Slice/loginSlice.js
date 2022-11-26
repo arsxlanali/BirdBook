@@ -1,37 +1,30 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { baseURL } from "../../apiUrl";
 
 const initialState = {
-  // loginRes: [""],
-  // signupRes: null,
+  user: null,
   logedIn: false,
 };
 
-export const login = createAsyncThunk(
+export const loginAction = createAsyncThunk(
   "users/login",
-  async ({ values, setSubmitting }) => {
-    console.log("values", values);
-    axios
-      .post(`${baseURL}/auth`, values)
-      .then((response) => {
-        console.log("this is ", response);
-        setSubmitting(false);
-        localStorage.setItem("Token", response.data.accessToken);
-        localStorage.setItem("Name", response.data.name);
-        localStorage.setItem("Email", response.data.email);
-        localStorage.setItem("Id", response.data._id);
-        toast.success("Successfull loged in");
-        // navigate("/");
-        return response?.data;
-      })
-      .catch((error) => {
-        setSubmitting(false);
-        console.log("this is error", error);
-        // setErrors({ email: "Invalid credentials" });
-      });
+  async ({ values, setSubmitting, navigate }) => {
+    try {
+      const res = await axios.post(`${baseURL}/auth`, values);
+      setSubmitting(false);
+      localStorage.setItem("Token", res.data.accessToken);
+      localStorage.setItem("Name", res.data.name);
+      localStorage.setItem("Email", res.data.email);
+      localStorage.setItem("Id", res.data._id);
+      toast.success("Successfull loged in");
+      if (res.data.User == 5150) navigate("/admin");
+      return res?.data;
+    } catch (error) {
+      console.error(error);
+    }
   }
 );
 export const signup = createAsyncThunk(
@@ -55,17 +48,17 @@ export const loginSlice = createSlice({
     logOut: (state) => {
       state.logedIn = false;
     },
-    // logedIn: (state) => {
-    //   state.logedIn = true;
-    // },
+    adminLogout: (state) => {
+      state.user = 2001;
+    },
   },
   extraReducers: {
-    [login.fulfilled]: (state, action) => {
-      state.loginRes = action.payload;
+    [loginAction.fulfilled]: (state, { payload }) => {
+      state.user = payload.User;
       state.logedIn = true;
     },
   },
 });
 
-export const { logOut } = loginSlice.actions;
+export const { logOut, adminLogout } = loginSlice.actions;
 export default loginSlice.reducer;

@@ -2,8 +2,9 @@ import { Outlet, Link } from "react-router-dom";
 import "./Learning.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { getArticles } from "../../redux/Slice/articleSlice";
+import { getVideos } from "../../redux/Slice/videoSlice";
+import { getpodcasts } from "../../redux/Slice/podcastSlice";
 export default function Learning() {
   const [state, setState] = useState([true, false, false, false, false, false]);
   const [headingBack, setHeadingBack] = useState([true, false]);
@@ -41,7 +42,12 @@ export default function Learning() {
                 Articles
               </li>
             </Link>
-            <Link to="/Learning/Videos">
+            <Link
+              to="/Learning/Videos"
+              onClick={() => {
+                dispatch(getVideos());
+              }}
+            >
               <li
                 style={state[1] ? styles : preStyle}
                 onClick={() => {
@@ -52,7 +58,12 @@ export default function Learning() {
                 Videos
               </li>
             </Link>
-            <Link to="/Learning/Podcast">
+            <Link
+              to="/Learning/Podcast"
+              onClick={() => {
+                dispatch(getpodcasts());
+              }}
+            >
               <li
                 style={state[2] ? styles : preStyle}
                 onClick={() => {

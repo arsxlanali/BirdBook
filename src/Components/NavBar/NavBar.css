@@ -3,12 +3,10 @@
     width: 100%;
 }
 
-/* .navbar {
-    position: fixed;
-} */
+
 .Nav--bar {
     overflow: hidden;
-    /* position: fixed !important; */
+    position: fixed !important;
     z-index: 1;
     top: 0;
     width: 100%;

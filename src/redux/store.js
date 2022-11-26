@@ -2,6 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import loginSliceReducer from "./Slice/loginSlice";
 import quizSlice from "./Slice/quizSlice";
 import articleSlice from "./Slice/articleSlice";
+import videoSlice from "./Slice/videoSlice";
+import podcastSlice from "./Slice/podcastSlice";
 
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
@@ -12,6 +14,8 @@ const reducers = combineReducers({
   login: loginSliceReducer,
   quiz: quizSlice,
   article: articleSlice,
+  video: videoSlice,
+  podcast: podcastSlice,
 });
 
 const persistConfig = {

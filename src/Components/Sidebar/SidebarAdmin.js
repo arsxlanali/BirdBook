@@ -13,17 +13,16 @@ import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import QuizIcon from "@mui/icons-material/Quiz";
 import { Link } from "react-router-dom";
-
-import { useContext } from "react";
-
+import { useDispatch } from "react-redux";
+import { logOut } from "../../redux/Slice/loginSlice";
+import { adminLogout } from "../../redux/Slice/loginSlice";
+import { useNavigate } from "react-router-dom";
+import { getQuiz } from "../../redux/Slice/quizSlice";
 const Sidebar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <div className="sidebar-admin">
-      <div className="top">
-        <Link to="/admin" style={{ textDecoration: "none" }}>
-          <span className="logo">BirdBook</span>
-        </Link>
-      </div>
       <hr />
       <div className="center">
         <ul>
@@ -39,10 +38,19 @@ const Sidebar = () => {
               <span>Add Quiz</span>
             </li>
           </Link>
-          <Link to="/admin/users" style={{ textDecoration: "none" }}>
+          <Link
+            to="/admin/listquiz"
+            style={{ textDecoration: "none" }}
+            onClick={() => {
+              const data = {
+                type: "visual",
+              };
+              dispatch(getQuiz(data));
+            }}
+          >
             <li>
               <PersonOutlineIcon className="icon" />
-              <span>Users</span>
+              <span>List Quiz</span>
             </li>
           </Link>
           <Link to="products" style={{ textDecoration: "none" }}>
@@ -86,7 +94,14 @@ const Sidebar = () => {
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              dispatch(logOut());
+              dispatch(adminLogout());
+              localStorage.clear();
+              navigate("/");
+            }}
+          >
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
           </li>

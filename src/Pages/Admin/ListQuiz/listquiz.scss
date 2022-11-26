@@ -1,0 +1,20 @@
+.admin-main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 250px;
+    padding-top: 100px;
+    .container-div {
+        max-width: 1200px;
+        min-width: 600px;
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        padding: 10px;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    .select-div {
+        max-width: 1200px;
+        min-width: 600px;
+    }
+
+}
