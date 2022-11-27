@@ -32,7 +32,7 @@ function Result() {
           style={{ position: "absolute", right: 50, bottom: 50, width: 100 }}
           onClick={() => {
             dispatch(clearQuiz());
-            navigate("/");
+            navigate(-1);
           }}
         >
           Finish

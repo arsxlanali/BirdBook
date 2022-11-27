@@ -57,14 +57,14 @@ function UplaodImg({ field, image }) {
       className="Dropzone"
       accept="image/jpeg, image/png, .jpg, .jpeg, .png"
       multiple={false}
-      style={{ width: "250px", height: "250px" }}
+      style={{ width: "200px", height: "200px" }}
       onDrop={onDrop}
     >
       {preview ? (
         <img
           alt="upload preview"
           // onLoad={this.onImageChange}
-          style={{ width: "250px", height: "250px" }}
+          style={{ width: "200px", height: "200px" }}
           className="Dropzone-img"
           src={preview}
         />

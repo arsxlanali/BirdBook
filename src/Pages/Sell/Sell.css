@@ -1,0 +1,89 @@
+.sell {
+  /* margin-top: 13vh; */
+  /* background-color: #F3EAFF; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 250px;
+  padding-top: 100px;
+}
+.sell-background {
+  background-color: rgb(248, 249, 250);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 90%;
+  width: 80%;
+  margin-bottom: 200px;
+}
+.sell-ad {
+  margin: auto;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.line-4 hr {
+  height: 2px;
+  background: black;
+}
+.sell-details {
+  margin: 30px 60px 30px 60px;
+}
+.sell-form {
+  display: flex;
+  flex-direction: column;
+}
+.sell-form p {
+  margin: 6px 0px 0px 0px;
+  display: block;
+}
+.sell-input1 {
+  max-width: 250px;
+}
+.sell-input2 {
+  height: 70px;
+}
+.sell-form-section2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 6px;
+  justify-content: space-between;
+}
+.sell-input3 {
+  max-width: 250px;
+}
+.sellForm-photo {
+  display: flex;
+}
+/* .sell-upload{
+    display: none;
+} */
+/* .sell-inputtag{
+    cursor:pointer;
+    border: 2px dotted #c79afe;
+    background: #ffff;
+    border-radius: 12px;
+    width: 110px;
+    height: 40px;
+    text-align: center;
+} */
+/* .sell-inputtag:hover{
+    background: linear-gradient(95deg, #e9ecef, #ffffff);
+} */
+.sell-button {
+  width: 120px;
+  height: 30px;
+  font-weight: 600;
+  font-size: medium;
+  margin: auto;
+  color: black;
+  background: #dec3ff;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.sell-button:hover {
+  background: linear-gradient(95deg, #e9ecef, #ffffff);
+  text-transform: uppercase;
+  color: #14213d;
+  transform: translateY(-0.25em);
+}

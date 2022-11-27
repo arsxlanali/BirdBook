@@ -19,6 +19,8 @@ import MainArticles from "./Pages/Articles/MainArticle";
 import AddQuiz from "./Pages/Admin/AddQuiz/AddQuiz";
 import MainPodcast from "./Pages/Podcast/MainPodcast";
 import BirdRecognition from "./Pages/BirdRecognition/BirdRecognition";
+import MainBuy from "./Pages/Buy/BuyMain";
+import Sell from "./Pages/Sell/Sell";
 
 import Admin from "./Pages/Admin/Admin";
 import HomeAdmin from "./Pages/Admin/home/Home";
@@ -85,9 +87,13 @@ function App() {
                 <Route path="SoundQuiz" element={<Quiz type={"audio"} />} />
                 <Route path="Result" element={<Result />} />
               </Route>
+              <Route path="Ecomerce" element={<Ecomerce />}>
+                <Route path="Buy" element={<MainBuy />} />
+                <Route path="Sell" element={<Sell />} />
+              </Route>
               <Route path="Maps" element={<ReactGoogleMaps />} />
               <Route path="Forum" element={<Forum />} />
-              <Route path="Ecomerce" element={<Ecomerce />} />
+
               <Route path="BirdRecognition" element={<BirdRecognition />} />
             </Routes>
           </>

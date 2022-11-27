@@ -14,7 +14,7 @@ font-family: 'Inter', sans-serif;
 }
 
 audio::-webkit-media-controls-panel {
-  background-color: #D6D1D1;
+  background-color: rgb(248, 249, 250);
 }
 
 

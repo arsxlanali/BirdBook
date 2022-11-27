@@ -1,0 +1,22 @@
+.buy-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 250px;
+  padding-top: 100px;
+  .buy {
+    width: 800px;
+    // min-width: 700px;
+    padding: 10px;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    background-color: rgb(248, 249, 250);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .buy-div-top {
+    // width: 100%;
+    width: 700px;
+    // max-width: 740px;
+    // min-width: 600px;
+  }
+}

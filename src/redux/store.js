@@ -4,6 +4,7 @@ import quizSlice from "./Slice/quizSlice";
 import articleSlice from "./Slice/articleSlice";
 import videoSlice from "./Slice/videoSlice";
 import podcastSlice from "./Slice/podcastSlice";
+import advertisementSlice from "./Slice/advertisementSlice";
 
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
@@ -16,6 +17,7 @@ const reducers = combineReducers({
   article: articleSlice,
   video: videoSlice,
   podcast: podcastSlice,
+  advertisement: advertisementSlice,
 });
 
 const persistConfig = {

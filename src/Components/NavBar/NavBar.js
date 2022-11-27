@@ -88,9 +88,9 @@ export default function NavBar() {
             </Link>
             <Link
               className="me-3 text-end font-face-reg nav-link nav-itm nav-pages"
-              to="/Ecomerce"
+              to="/Ecomerce/Buy"
             >
-              Ecomerce
+              Bird Mart
             </Link>
             <Link
               className="me-3 text-end font-face-reg nav-link nav-itm nav-pages"
