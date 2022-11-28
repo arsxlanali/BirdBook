@@ -44,7 +44,8 @@ export default function Quiz({ type }) {
         ) : (
           <div className="quizQuestion">
             <Link to="/Learning/Result">
-              <button type="button" class="btn btn-primary btn-sm">
+              <button type="button" class="btn btn-primary btn-sm"
+              >
                 View Result
               </button>
             </Link>

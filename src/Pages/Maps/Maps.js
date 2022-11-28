@@ -13,12 +13,12 @@ import "./Maps.css";
 // To use the Google Maps JavaScript API, you must register your app project on the Google API Console and get a Google API key which you can add to your app
 const apiKey = "AIzaSyASyYRBZmULmrmw_P9kgr7_266OhFNinPA";
 
-const defaultZoom = 11;
-const defaultCenter = { lat: 37.431489, lng: -122.163719 };
+const defaultZoom = 4;
+const defaultCenter = { lat: 33.384056232868986, lng: 53.37607116709143 };
 const locations = [
   {
-    lat: 37.431489,
-    lng: -122.163719,
+    lat: 30.800245244373766,
+    lng: 70.26739578942752,
     label: "A",
     draggable: false,
     title: "Abbot Bobby",
@@ -26,9 +26,10 @@ const locations = [
     image:
       "https://www.edgeofexistence.org/wp-content/uploads/2017/06/Papasula_abbotti_xlarge3.jpg",
   },
+
   {
-    lat: 37.394694,
-    lng: -122.150333,
+    lat: 25.811638210243277,
+    lng: 43.50470061596605,
     label: "B",
     draggable: false,
     title: "Barn Owl",
@@ -36,9 +37,10 @@ const locations = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSrYIpW1MfXjSHuiJGqc7KLmlUKBCeMHHa1g&usqp=CAU",
   },
+
   {
-    lat: 37.331681,
-    lng: -122.0301,
+    lat: 33.805795780674345,
+    lng: 53.64745995211053,
     label: "D",
     draggable: false,
     title: "Dusky Lory",
@@ -47,8 +49,8 @@ const locations = [
       "https://i.pinimg.com/originals/ff/67/25/ff6725f4ca42b3bf4e9311dec4679b81.jpg",
   },
   {
-    lat: 37.484722,
-    lng: -122.148333,
+    lat: 40.11963676745065,
+    lng: 61.01610427124583,
     label: "G",
     draggable: false,
     title: "Grren Jay",

@@ -24,9 +24,17 @@ class BirdRecognition extends React.Component {
   }
 
   onDrop = (accepted, rejected, links) => {
+    // console.log("this is blob", accepted, links);
     this.setState({ preview: accepted[0].preview || links[0] });
   };
-
+  handleClick = async (e) => {
+    // console.log("ssss", e.target.src);
+    let file = await fetch(e.target.src)
+      .then((r) => r.blob())
+      .then((blobFile) => {
+        this.setState({ preview: URL.createObjectURL(blobFile) });
+      });
+  };
   cropToCanvas = (image, canvas, ctx) => {
     const naturalWidth = image.naturalWidth;
     const naturalHeight = image.naturalHeight;
@@ -43,7 +51,7 @@ class BirdRecognition extends React.Component {
     );
     const newWidth = Math.round(naturalWidth * ratio);
     const newHeight = Math.round(naturalHeight * ratio);
-    console.log("this is ", newWidth, newHeight);
+    // console.log("this is ", newWidth, newHeight);
     ctx.drawImage(
       image,
       0,
@@ -133,6 +141,7 @@ class BirdRecognition extends React.Component {
             accept="image/jpeg, image/png, .jpg, .jpeg, .png"
             multiple={false}
             onDrop={this.onDrop}
+            style={{ width: "70vh", height: "70vh" }}
           >
             {this.state.preview ? (
               <img
@@ -140,15 +149,45 @@ class BirdRecognition extends React.Component {
                 onLoad={this.onImageChange}
                 className="Dropzone-img"
                 src={this.state.preview}
+                style={{ width: "68vh", height: "68vh" }}
               />
             ) : (
               "Choose or drop a file."
             )}
-            <canvas id="canvas" width="320" height="320" />
+            <canvas id="canvas" width="100" height="100" />
           </MagicDropzone>
         ) : (
           <div className="Dropzone">Loading model...</div>
         )}
+        <h4 className="my-3">Choose the image for Recognition</h4>
+        <div
+          className="select-div-image"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            width: "80vh",
+          }}
+        >
+          <img
+            alt="upload preview"
+            className="select-image"
+            src="https://res.cloudinary.com/dpxrvbatm/image/upload/v1669571708/tnlc1l7ivirq5lcw8mj4.jpg"
+            onClick={this.handleClick}
+          />
+          <img
+            alt="upload preview"
+            className="select-image"
+            src="https://res.cloudinary.com/dpxrvbatm/image/upload/v1669450189/hhclr2ikw7k9p6yk2kdf.jpg"
+            onClick={this.handleClick}
+          />
+          <img
+            alt="upload preview"
+            className="select-image"
+            src="https://res.cloudinary.com/dpxrvbatm/image/upload/v1669029972/b8lwz1pjwf1mlu5sl85o.jpg"
+            onClick={this.handleClick}
+          />
+        </div>
       </div>
     );
   }
