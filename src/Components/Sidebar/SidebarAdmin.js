@@ -11,6 +11,9 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import PodcastsIcon from "@mui/icons-material/Podcasts";
+import ArticleIcon from "@mui/icons-material/Article";
+import DocumentScannerIcon from "@mui/icons-material/DocumentScanner";
 import QuizIcon from "@mui/icons-material/Quiz";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -27,11 +30,14 @@ const Sidebar = () => {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
-          <li>
-            <DashboardIcon className="icon" />
-            <span>Dashboard</span>
-          </li>
-          <p className="title">LISTS</p>
+
+          <Link to="/admin" style={{ textDecoration: "none" }}>
+            <li>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
+            </li>
+          </Link>
+          <p className="title">Quiz</p>
           <Link to="/admin/addquiz" style={{ textDecoration: "none" }}>
             <li>
               <QuizIcon className="icon" />
@@ -53,41 +59,23 @@ const Sidebar = () => {
               <span>List Quiz</span>
             </li>
           </Link>
-          <Link to="products" style={{ textDecoration: "none" }}>
-            <li>
-              <StoreIcon className="icon" />
-              <span>Products</span>
-            </li>
-          </Link>
-          <li>
-            <CreditCardIcon className="icon" />
-            <span>Orders</span>
-          </li>
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
-          </li>
-          <p className="title">USEFUL</p>
+          <p className="title">PODACTS</p>
           <li>
             <InsertChartIcon className="icon" />
-            <span>Stats</span>
+            <span>Add Podcasts</span>
           </li>
           <li>
-            <NotificationsNoneIcon className="icon" />
-            <span>Notifications</span>
+            <PodcastsIcon className="icon" />
+            <span>List Podcasts</span>
           </li>
-          <p className="title">SERVICE</p>
+          <p className="title">ARTICLES</p>
           <li>
-            <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>System Health</span>
-          </li>
-          <li>
-            <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
+            <DocumentScannerIcon className="icon" />
+            <span>Add Articles</span>
           </li>
           <li>
-            <SettingsApplicationsIcon className="icon" />
-            <span>Settings</span>
+            <ArticleIcon className="icon" />
+            <span>List Articles</span>
           </li>
           <p className="title">USER</p>
           <li>

@@ -141,7 +141,7 @@ class BirdRecognition extends React.Component {
             accept="image/jpeg, image/png, .jpg, .jpeg, .png"
             multiple={false}
             onDrop={this.onDrop}
-            style={{ width: "70vh", height: "70vh" }}
+            style={{ width: "60vh", height: "60vh" }}
           >
             {this.state.preview ? (
               <img
@@ -149,7 +149,7 @@ class BirdRecognition extends React.Component {
                 onLoad={this.onImageChange}
                 className="Dropzone-img"
                 src={this.state.preview}
-                style={{ width: "68vh", height: "68vh" }}
+                style={{ width: "58vh", height: "58vh" }}
               />
             ) : (
               "Choose or drop a file."
